@@ -78,9 +78,14 @@
                 <div class="sphere orange"></div>
             </section>
         </div>
+        <button onclick="openBlogInfo()">Категории</button>
 
     </section>
     <script>
+        function openBlogInfo() {
+            myWin = open("https://www.youtube.com/");
+        }
+
         const ctx = document.getElementById('myChart').getContext('2d');
         const myChart = new Chart(ctx, {
             type: 'doughnut',
