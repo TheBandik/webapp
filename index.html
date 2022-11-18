@@ -1,22 +1,118 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-   <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="css/style.css">
-   <script src="https://telegram.org/js/telegram-web-app.js"></script>
-   <script src="js/script.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="MobileOptimized" content="176" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title></title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/script.js"></script>
 </head>
 
 <body>
-   <div id="usercard"> <!--Карта профиля, человека, который к нам обратился-->
-   </div>
-   <p>Just text</p> <!--Просто текст для проверки-->
-   <a class="link" href="https://mihailgok.ru">Link</a> <!--Просто ссылка для проверки-->
-   <p class="hint">Some little hint</p> <!--Просто текст-подсказка для проверки-->
-   <button id="btn" class="button">Show/Hide Main Button</button> <!--Кнопка, чтобы скрыть / показать основную кнопку-->
-   <button id="btnED" class="button">Enable/Disable Main Button</button> <!--Кнопка, чтобы сделать кнопку активной/неактивной-->
-</body>
 
-</html>
+    <section>
+        <!-- <div id="buttons"> -->
+        <!-- <button onclick="webviewExpand();">Expand Webview</button> -->
+        <!-- <small>(The window goes fullscreen)</small> -->
+        <!-- <button onclick="toggleMainButton(this);">Hide Main Button</button> -->
+        <!-- <small>(It hides/shows main button)</small> -->
+        <script>
+            function test() {
+                Telegram.WebApp.sendData("test");
+            }
+        </script>
+        <button id="test" onclick="test();">test</button>
+        <!-- <small>(The bot will recieve a message with filled <code>web_app_data</code> field)</small> -->
+        <!-- </div> -->
+
+        <table class="one-third">
+            <tr>
+                <td>
+                    <button>test1</button>
+                </td>
+                <td>
+                    <button>test2</button>
+                </td>
+                <td>
+                    <button>test3</button>
+                </td>
+            </tr>
+        </table>
+        <h1>test</h1>
+        <div class="slider">
+            <section>
+                <div class="titlecat"">
+                    <i class=" arrow left"></i>
+                </div>
+                <div class="titlecat"">
+                    <h1>test text</h1>
+                </div>
+                <div class=" titlecat"">
+                    <i class="arrow right"></i>
+                </div>
+                <canvas id="myChart" width="400" height="400"></canvas>
+            </section>
+            <section>
+                <h1>Section Two</h1>
+                <div class="sphere green"></div>
+            </section>
+            <section>
+                <h1>Section Three</h1>
+                <div class="sphere blue"></div>
+            </section>
+            <section>
+                <h1>Section Four</h1>
+                <div class="sphere yellow"></div>
+            </section>
+            <section>
+                <h1>Section Five</h1>
+                <div class="sphere orange"></div>
+            </section>
+        </div>
+
+    </section>
+    <script>
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Категория1', 'Категория2', 'Категория2', 'Категория2', 'Категория2', 'Категория2'],
+                datasets: [{
+                    data: [12, 19, 3, 5, 2, 3],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            }
+        });
+
+        let tg = window.Telegram.WebApp;
+
+        tg.expand();
+
+        tg.MainButton.text = "Text";
+    </script>
+</body>
